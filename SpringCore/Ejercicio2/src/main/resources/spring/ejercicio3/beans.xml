@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="partidoBean" class="com.example.demo.ejercicio3.Partido">
+         <property name="nombre">
+             <value>newpi vs furama</value>
+         </property>
+    </bean>
+
+    <bean id="eventoBean" class="com.example.demo.ejercicio3.Evento">
+        <constructor-arg value="Super campeones"/>
+    </bean>
+  
+    <bean id="torneoBean" class="com.example.demo.ejercicio3.Torneo">
+        <constructor-arg value="La gran final"/>
+        <constructor-arg>
+            <ref bean="eventoBean"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="jugadorBean" class="com.example.demo.ejercicio3.JugadorFutbol">
+        <property name="nombre" value="Oliver ato"/>
+        <property name="torneo" ref="torneoBean"/>
+        <property name="partido" ref="partidoBean"/>
+    </bean>
+
+    <bean id="jugadorTennisBean" class="com.example.demo.ejercicio3.JugadorTennis">
+        <property name="nombre" value="Tennis Oliver ato"/>
+        <property name="torneo" ref="torneoBean"/>
+        <property name="partido" ref="partidoBean"/>
+    </bean>
+
+    <bean id="jugadorAmericanoBean" class="com.example.demo.ejercicio3.JugadorAmericano">
+        <property name="nombre" value="Americano Oliver ato"/>
+        <property name="torneo" ref="torneoBean"/>
+        <property name="partido" ref="partidoBean"/>
+    </bean>
+</beans>

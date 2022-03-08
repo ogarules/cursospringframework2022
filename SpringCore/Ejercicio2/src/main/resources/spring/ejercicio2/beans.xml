@@ -4,11 +4,11 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="helloWorldProps" class="com.example.demo.ejercicio2.HelloWorld">
-        <property name="mensaje" value="hello"/>
+        <property name="mensaje" value="hello by property" />
     </bean>
 
     <bean id="helloWorldConst" class="com.example.demo.ejercicio2.HelloWorld">
-        <constructor-arg value="hello"/>
+        <constructor-arg value="hello by constructor"/>
     </bean>
 
 </beans>
