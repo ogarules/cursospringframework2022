@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="com.example.demo.ejercicio13.Car" autowire="constructor">
+    </bean>
+
+    <bean class="com.example.demo.ejercicio13.WheelGroup" autowire="constructor">
+    </bean>
+
+    <util:list id="listBean" list-class="java.util.ArrayList">
+        <ref bean="wheel" />
+        <ref bean="wheel" />
+        <ref bean="wheel" />
+        <bean class="com.example.demo.ejercicio13.Wheel"
+            p:rinSize="110" p:material="magia">
+        </bean>
+    </util:list>
+
+    <bean id="wheel" class="com.example.demo.ejercicio13.Wheel" scope="prototype"
+          p:rinSize="220" p:material="caucho" autowire-candidate="false" >
+    </bean>
+
+    <bean class="com.example.demo.ejercicio13.Engine"
+          p:cylinders="10" p:model="cadilac" p:serial="123">
+    </bean>
+</beans>
