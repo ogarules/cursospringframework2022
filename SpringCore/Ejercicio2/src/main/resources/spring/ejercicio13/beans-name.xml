@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="com.example.demo.ejercicio13.Car" autowire="byName"> 
+    </bean>
+
+    <bean id="wheelGroup" class="com.example.demo.ejercicio13.WheelGroup" autowire="byName">
+    </bean>
+
+    <util:list id="wheelList" list-class="java.util.ArrayList">
+        <ref bean="wheel"/>
+        <ref bean="wheel"/>
+        <ref bean="wheel"/>
+        <ref bean="wheel"/>
+        <bean class="com.example.demo.ejercicio13.Wheel"
+              p:rinSize="100" p:material="caucho">
+        </bean>
+    </util:list>
+
+    <bean id="wheel" class="com.example.demo.ejercicio13.Wheel" scope="prototype"
+          p:rinSize="200" p:material="maiga" autowire-candidate="false" >
+    </bean>
+
+    <bean id="engine" class="com.example.demo.ejercicio13.Engine"
+          p:cylinders="10" p:model="mazda" p:serial="123">
+    </bean>
+</beans>

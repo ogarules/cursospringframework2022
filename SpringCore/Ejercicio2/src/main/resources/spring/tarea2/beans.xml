@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="autoPapaBean" class="com.example.demo.tarea2.Auto"
+          p:placa="ABC-123"/>
+    <bean id="autoMamaBean" class="com.example.demo.tarea2.Auto"
+          p:placa="ABC-234"/>
+    <bean id="autoHijaBean" class="com.example.demo.tarea2.Auto"
+          p:placa="DEF-123"/>
+    <bean id="autoHijoBean" class="com.example.demo.tarea2.Auto"
+          p:placa="DEF-234"/>
+
+    <bean id="papaBean" class="com.example.demo.tarea2.Persona"
+          p:nombre="oga papa" p:auto-ref="autoPapaBean"/>
+    <bean id="mamaBean" class="com.example.demo.tarea2.Persona"
+          p:nombre="oga mama" p:auto-ref="autoMamaBean"/>
+    <bean id="hijaBean" class="com.example.demo.tarea2.Persona"
+          c:nombre="oga hija" c:auto-ref="autoHijaBean"/>
+    <bean id="hijoBean" class="com.example.demo.tarea2.Persona"
+          c:nombre="oga hijo" c:auto-ref="autoHijoBean"/>
+
+    <util:list id="notasBean" list-class="java.util.ArrayList">
+        <value>Comprar leche</value>
+        <value>Tirar la basura</value>
+    </util:list>
+
+    <util:set id="autosBean" set-class="java.util.HashSet">
+        <ref bean="autoPapaBean"/>
+        <ref bean="autoMamaBean"/>
+        <ref bean="autoHijaBean"/>
+        <ref bean="autoHijoBean"/>
+    </util:set>
+
+    <util:map id="mapBean" map-class="java.util.HashMap">
+        <entry key="uno" value="1" />
+        <entry key="dos" value="2" />
+    </util:map>
+ 
+    <util:properties id="propertiesBean"
+         location="classpath:/spring/tarea2/properties/*.properties">
+
+         <prop key="programmer.name">OGA programmer</prop>
+         <prop key="programmer.beer">Lots</prop>
+
+    </util:properties>
+
+    <bean id="agendaBean" class="com.example.demo.tarea2.Agenda"
+          p:papa-ref="papaBean" p:mama-ref="mamaBean"
+          p:hija-ref="hijaBean" p:hijo-ref="hijoBean"
+          p:notas-ref="notasBean" p:autosFamilia-ref="autosBean"
+          p:numeros-ref="mapBean" p:properties-ref="propertiesBean">
+
+    </bean>
+</beans>

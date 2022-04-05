@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="studentFactoryMethodBean" class="com.example.demo.ejercicio8.Student"
+          factory-method="constructStudent">
+
+          <constructor-arg value="OGA" index="0"/>
+          <constructor-arg value="Spring Framework" index="1"/>
+          <constructor-arg value="Oscar Garcia" index="2"/>
+    </bean>
+
+    <bean id="studentFactoryBean" class="com.example.demo.ejercicio8.StudentFactory">
+    </bean>
+
+    <bean id="studentByFactoryBean" class="com.example.demo.ejercicio8.Student"
+          factory-bean="studentFactoryBean" factory-method="getStudent">
+          <constructor-arg value="OGA" index="0"/>
+          <constructor-arg value="Spring Framework" index="1"/>
+          <constructor-arg value="Oscar Garcia" index="2"/>
+    </bean>
+</beans>

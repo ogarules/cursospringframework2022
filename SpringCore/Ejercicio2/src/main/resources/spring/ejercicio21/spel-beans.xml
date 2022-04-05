@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="guessNumberBean" class="com.example.demo.ejercicio21.beans.GuessNumber">
+        <property name="ramdomNumber" value="#{T(java.lang.Math).random() * 100.0}"/>
+    </bean>
+
+    <bean id="magicianBean" class="com.example.demo.ejercicio21.beans.Magician">
+        <property name="initialNumber" value="#{guessNumberBean.ramdomNumber}"/>
+    </bean>
+
+    <bean id="teslaBean" class="com.example.demo.ejercicio21.models.Inventor"
+          factory-bean="societyStub" factory-method="createInventorTesla">
+    </bean>
+    
+    <bean id="societyStub" class="com.example.demo.ejercicio21.SocietyStub">
+    </bean>
+</beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.example.demo.ejercicio18">
+    </context:component-scan>
+
+    <bean id="itDirector" class="com.example.demo.ejercicio18.beans.Director">
+        <property name="employee" ref="itDirectorEmployee"/>
+        <property name="budget.ammount" value="1000000"/>
+    </bean>
+
+    <bean id="generalDirectorBean" class="com.example.demo.ejercicio18.beans.Director">
+        <property name="employee" ref="generalDirectorEmployee"/>
+        <property name="budget.ammount" value="2000000"/>
+    </bean>
+
+    <util:list id="teamxEmployees" list-class="java.util.ArrayList" value-type="java.lang.String">
+         <value>Hugo</value>
+         <value>Paco</value>
+         <value>Luis</value>
+    </util:list>
+
+    <util:list id="teamyEmployees" list-class="java.util.ArrayList" value-type="java.lang.String">
+         <value>oga 1</value>
+         <value>oga 2</value>
+         <value>oga 3</value>
+    </util:list>
+</beans>
