@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.example.demo.ejercicio20">
+    </context:component-scan>
+
+    <bean class="com.example.demo.ejercicio20.Resources">
+        <property name="txtFile"
+                  value="file:src/main/resources/spring/ejercicio20/certificatic-resources/my-textfile.txt">
+        </property>
+
+        <property name="propertiesFile"
+                  value="classpath:spring/ejercicio20/my-properties.properties">
+        </property>
+
+        <property name="urlFile"
+                  value="https://spring.io">
+        </property>
+
+        <property name="imageFile"
+                  value="file:src/main/resources/spring/ejercicio20/logo.png">
+        </property>
+    </bean>
+
+    <util:properties id="definedProperties">
+        <prop key="favourite.rockband.first">Bon jovi</prop>
+        <prop key="favourite.rockband.second">Foo fighters</prop>
+    </util:properties>
+
+    <context:property-placeholder location="classpath:spring/ejercicio20/*-properties.properties,classpath:spring/ejercicio20/app.properties,classpath:spring/ejercicio20/service.properties,classpath:spring/ejercicio20/datasource.properties"
+                                  properties-ref="definedProperties" />
+    
+</beans>

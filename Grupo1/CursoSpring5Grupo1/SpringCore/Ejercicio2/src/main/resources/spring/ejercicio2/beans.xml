@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="helloWorldProps" class="com.example.demo.ejercicio2.HelloWorld">
+        <property name="mensaje" value="hello"/>
+    </bean>
+
+    <bean id="helloWorldConst" class="com.example.demo.ejercicio2.HelloWorld">
+        <constructor-arg value="hello"/>
+    </bean>
+
+</beans>

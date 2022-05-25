@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="workerBean" class="com.example.demo.ejercicio10.Worker"
+          init-method="init" destroy-method="destroy">
+        <property name="name" value="oga xml" />
+        <property name="age" value="1" />
+    </bean>
+
+    <bean class="com.example.demo.ejercicio10.BeanPostProcessor1"></bean>
+    <bean class="com.example.demo.ejercicio10.BeanPostProcessor2"></bean>
+    <bean class="com.example.demo.ejercicio10.BeanPostProcessor3"></bean>
+    <bean class="com.example.demo.ejercicio10.BeanPostProcessor4"></bean>
+
+</beans>

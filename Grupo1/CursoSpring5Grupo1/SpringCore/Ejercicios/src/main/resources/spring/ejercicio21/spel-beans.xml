@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="guessNumberBean" class="com.example.demo.ejercicio21.beans.GuessNumber">
+          <property name="randomNumber" value="#{T(java.lang.Math).random() * 100}"/>
+    </bean>
+
+    <bean id="magicianBean" class="com.example.demo.ejercicio21.beans.Magician">
+          <property name="initialNumber" value="#{guessNumberBean.randomNumber}"/>
+    </bean>
+    
+    <bean id="sociertyStub" class="com.example.demo.ejercicio21.SocietyStub">
+    </bean>
+
+    <bean id="teslaBean" class="com.example.demo.ejercicio21.models.Inventor"
+          factory-bean="sociertyStub" factory-method="createInventorTesla">
+    </bean>
+
+</beans>

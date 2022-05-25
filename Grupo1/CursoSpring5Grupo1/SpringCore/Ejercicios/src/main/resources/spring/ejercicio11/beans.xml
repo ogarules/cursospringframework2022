@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.example.demo.ejercicio11.Person">
+        <property name="name">
+            <bean id="nameBean" class="java.lang.String">
+                <constructor-arg value="OGA"/>
+            </bean>
+        </property>
+        <property name="age" value="1" />
+        <property name="address">
+            <bean class="com.example.demo.ejercicio11.Address">
+                <property name="street" ref="streetBean" />
+                <property name="externalNumber" value="1"></property>
+                <property name="internalNumber" value="100"></property>
+                <property name="neighbor">
+                    <bean class="java.lang.String">
+                        <constructor-arg value="el que me cae bien"></constructor-arg>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <bean id="streetBean" class="java.lang.String">
+        <constructor-arg value="eje central"/>
+    </bean>
+</beans>
